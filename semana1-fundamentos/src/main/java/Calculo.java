@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Calculo {
     Scanner input = new Scanner(System.in);
+    private int opcao;
     private ArrayList<Double> numeros = new ArrayList<>();
 
     public void iniciar() {
@@ -31,10 +32,9 @@ public class Calculo {
         }
     }
 
-    public void exibirResultados() {
-        int opcao;
-        do {
-            System.out.println(""" 
+    public void exibirMenu() {
+
+        System.out.println(""" 
                     --------------------------------- 
                     |           Cálculos            |
                     | ----------------------------- | 
@@ -45,51 +45,72 @@ public class Calculo {
                     | 0 - Sair;                     |
                     --------------------------------- 
                     """);
-            opcao = input.nextInt();
+        opcao = input.nextInt();
+    }
+
+    public void exibirResultados() {
+
+        do {
+            exibirMenu();
             switch (opcao) {
                 case 1:
-                    preencherLista();
-                    System.out.println("\n------- RESULTADOS -------");
-                    System.out.printf("Números digitados: %s%n", numeros);
-                    System.out.println("----------------");
-                    System.out.println("Você escolheu somar os números.");
                     double soma = somar();
-                    System.out.println("O resultado da soma é: " + soma);
-                    System.out.printf("Soma: %.2f%n", soma);
-                    System.out.println("------------------\n");
+                    System.out.printf("""
+                    ---------------------------------
+                    |  Resultados                   |
+                    | ----------------------------- | 
+                    |  Números digitados:           |
+                    |  %s                           |
+                    |  Vamos somar os números!      |
+                    |  O resultado da soma é: %.2f  |
+                    ---------------------------------
+                    """, numeros, soma);
                     break;
                 case 2:
-                    preencherLista();
-                    System.out.println("\n------- RESULTADOS -------");
-                    System.out.printf("Números digitados: %s%n", numeros);
-                    System.out.println("----------------");
-                    System.out.println("Você escolheu calcular a média");
                     double media = calcularMedia();
-                    System.out.printf("Média: %.2f%n", media);
-                    System.out.println("------------------\n");
+
+                    System.out.printf("""
+                    ----------------------------------
+                    | Resultados                     |
+                    | ------------------------------ | 
+                    | Números digitados:             |
+                    | %s                             |
+                    | Vamos ver a média dos números! |
+                    | O resultado da média é: %.2f%n |
+                    ----------------------------------
+                    """, numeros, media);
                     break;
                 case 3:
-                    preencherLista();
-                    System.out.println("\n------- RESULTADOS -------");
-                    System.out.printf("Números digitados: %s%n", numeros);
-                    System.out.println("----------------");
-                    System.out.println("Você escolheu descobrir o maior");
                     double maior = descobrirMaior();
-                    System.out.printf("Maior número: %.2f%n", maior);
-                    System.out.println("------------------\n");
+
+                    System.out.printf("""
+                    ----------------------------------
+                    | Resultados                     |
+                    | ------------------------------ | 
+                    | Números digitados:             |
+                    | %s                             |
+                    | Vamos ver o maior dos números! |
+                    | Descobrimos o resultado: %.2f%n|
+                    ---------------------------------- 
+                    """, numeros, maior);
                     break;
                 case 4:
-                    preencherLista();
-                    System.out.println("\n------- RESULTADOS -------");
-                    System.out.printf("Números digitados: %s%n", numeros);
-                    System.out.println("----------------");
-                    System.out.println("Você escolheu descobrir o menor");
                     double menor = descobrirMenor();
-                    System.out.printf("Menor número: %.2f%n",menor);
-                    System.out.println("------------------\n");
+
+                    System.out.printf("""
+                    ----------------------------------
+                    | Resultados                     |
+                    | ------------------------------ | 
+                    | Números digitados:             |
+                    | %s                             |
+                    | Vamos ver o menor dos números! |
+                    | Descobrimos o resultado: %.2f%n|
+                    ---------------------------------- 
+                    """, numeros, menor);
                     break;
                 default:
                     System.out.println("Ocorreu um erro");
+                    exibirResultados();
             }
         } while (opcao != 0);
     }
