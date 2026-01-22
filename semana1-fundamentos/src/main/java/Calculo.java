@@ -58,7 +58,7 @@ public class Calculo {
                     System.out.printf("""
                     ---------------------------------
                     |  Resultados                   |
-                    | ----------------------------- | 
+                    | -------------/---------------- | 
                     |  Números digitados:           |
                     |  %s                           |
                     |  Vamos somar os números!      |
@@ -84,7 +84,7 @@ public class Calculo {
                     double maior = descobrirMaior();
 
                     System.out.printf("""
-                    ----------------------------------
+                    ------------;.m----------------------
                     | Resultados                     |
                     | ------------------------------ | 
                     | Números digitados:             |
