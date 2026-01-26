@@ -49,5 +49,8 @@ public class Tarefas {
 
 		return tarefas.put(id, titulo);
 	}
+	public HashMap<Long, String> listarTarefas() {
+		
+	}
 
 }
