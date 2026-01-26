@@ -1,17 +1,19 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Scanner;
+import java.util.*;
 
 public class Calculo {
     Scanner input = new Scanner(System.in);
     private int opcao;
-    private ArrayList<Double> numeros = new ArrayList<>();
+    private List<Double> numeros = new ArrayList<>();
 
     public void iniciar() {
         preencherLista();
         if (!numeros.isEmpty()) {
-            exibirResultados();
-        } else {
+            for(double n : numeros) {
+                if (n >= 0) {
+                    exibirResultados();
+                }
+            }
+        }else {
             System.out.println("Nenhum número válido foi inserido. Encerrando.");
         }
     }
@@ -58,7 +60,7 @@ public class Calculo {
                     System.out.printf("""
                     ---------------------------------
                     |  Resultados                   |
-                    | -------------/---------------- | 
+                    | ----------------------------- | 
                     |  Números digitados:           |
                     |  %s                           |
                     |  Vamos somar os números!      |
@@ -109,7 +111,7 @@ public class Calculo {
                     """, numeros, menor);
                     break;
                 default:
-                    System.out.println("Ocorreu um erro");
+                    System.out.println("Ocorreu um erro. Tente novamente!");
                     exibirResultados();
             }
         } while (opcao != 0);
